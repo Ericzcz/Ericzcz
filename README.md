@@ -1,4 +1,4 @@
-# Hi there! 👋
+Hi there! 👋
 
 My name is **Chengzha(Eric) Zhou**, a Master's student in **Electrical and Computer Engineering (ECE)** at **Johns Hopkins University**. I'm currently looking for **Software Development Engineer (SDE)** internship and new graduate full-time opportunities.
 
