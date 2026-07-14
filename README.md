@@ -27,18 +27,19 @@ Python • FastAPI • OpenAI API • Milvus • Redis • PostgreSQL • Celery
 
 ### ⚡ High-Performance Async Web Scraper
 
-A distributed web scraping system capable of collecting over **180,000 records/day** with an asynchronous, multi-worker architecture.
+A production-deployed data collection system built during my Software Engineer Internship at **Datalynn**, designed as a reusable Python crawler plugin for on-demand data updates and upstream data query support.
 
 **Highlights**
 
-- Built an async scraping pipeline with **asyncio** and **Playwright** for high-throughput browser automation.
-- Designed a multi-worker crawling architecture with automatic retry, scheduling, and failure recovery.
-- Exposed scraping workflows through a **FastAPI REST API** and persisted collected data in **MySQL**.
-- Collected over **180,000 records/day** through concurrent crawling and worker-based execution.
+- Built a high-concurrency scraping pipeline with **Playwright**, **asyncio**, and **aiohttp**, reducing end-to-end latency by **60%** and collecting over **180,000 rows/day**.
+- Developed a reusable Python crawler plugin deployed in staging and production environments to support on-demand updates and upstream data query workflows.
+- Designed and implemented core components from requirements analysis through deployment, improving system efficiency by **4x** compared with the initial design.
+- Enabled distributed deployment across **5 workers**, achieving **5x horizontal scalability** and improving crawling throughput from **0.5GB/hour to 2GB/hour**.
+- Processed collected data with **Pandas**, stored results in **MySQL Server**, and exposed retrieve, update, and delete workflows through **FastAPI** APIs.
 
 **Tech Stack**
 
-Python • asyncio • Playwright • FastAPI • MySQL
+Python • asyncio • aiohttp • Playwright • Pandas • FastAPI • MySQL
 
 ---
 
