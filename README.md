@@ -25,7 +25,7 @@ Python • FastAPI • OpenAI API • Milvus • Redis • PostgreSQL • Celery
 
 ---
 
-### 🛒 [E-Commerce Platform](https://ericzcz.com/projects#e-commerce-platform)
+### 🛒 [E-Commerce Platform](https://github.com/Ericzcz/E-Commerce-Platform)
 
 A high-concurrency e-commerce platform providing merchant information search, flash-sale coupons, and intelligent customer service.
 
