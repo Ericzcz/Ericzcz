@@ -31,13 +31,11 @@ A high-concurrency e-commerce platform providing merchant information search, fl
 
 **Highlights**
 
-- Prevented cache breakdown for hot Redis keys with logical expiration and distributed locking, while using Bloom filters and cached-null entries to protect against cache penetration.
-- Built a two-level cache with Caffeine and Redis that automatically promotes hot data into local memory, achieving a **local-cache hit rate above 99%** and substantially reducing Redis load.
-- Maintained cache consistency by invalidating cached data after updates, retrying failed invalidations through a message queue, and using TTL as a fallback.
-- Implemented dynamic hotspot detection with Redis sliding windows, sampling statistics, and Lua scripts, improving hotspot-query throughput by **5–10x**.
-- Built a Redis- and Lua-based flash-sale workflow that validates purchase eligibility, prevents overselling and duplicate orders, and asynchronously processes inventory deduction and order creation through message-queue consumers.
-- Reduced flash-sale response time by **65.2%** while preventing overselling and duplicate purchases.
-- Scheduled automatic cancellation of unpaid orders with Spring Task and used optimistic locking to coordinate concurrent payment and order-closing operations.
+- Built a Redis Cache-Aside pipeline with cached null values, logical expiration, Redisson distributed locks, and asynchronous cache rebuilding to prevent cache penetration and breakdown, eliminating database lookups and reducing **P99 latency by 30.9%** from **43.88 ms to 30.31 ms** across **10,000 warmed-up queries** under **100 concurrent requests**.
+- Built a two-level caching layer with Caffeine and Redis, using a Redis Lua sliding window to dynamically detect hot keys and promote frequently accessed data into local memory, achieving a **100% cache hit rate**, increasing throughput by **30.4%** from **6,313.59 to 8,232.77 QPS**, and eliminating Redis lookups in a warmed-up single-hot-key benchmark.
+- Developed a Redis Lua flash-sale pipeline that atomically validates purchase eligibility, reserves inventory, and enforces one order per user before asynchronously creating orders through Redis Streams, reaching **3,668.06 QPS** with **1,000 unique users**, **100 concurrent requests**, and **200 vouchers** without overselling or duplicate orders.
+- Designed a reliable Redis Stream consumer workflow with consumer groups, idempotent processing, acknowledgments, pending-message recovery, retries, and dead-letter handling, reducing flash-sale API **P99 latency by 83.2%** from **408.81 ms to 68.59 ms** while processing **309.15 orders per second**.
+- Implemented a Spring scheduled order lifecycle workflow to batch-close expired unpaid orders, restore inventory, and resolve payment-cancellation races through compare-and-set status transitions, producing **zero invalid order states across 100 concurrency tests** and closing expired orders within **60 seconds**.
 
 **Tech Stack**
 
