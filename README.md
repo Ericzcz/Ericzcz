@@ -2,6 +2,8 @@ Hi there! 👋
 
 I'm **Chengzha (Eric) Zhou**, a Master's student in **Electrical and Computer Engineering (ECE)** at **Johns Hopkins University**. I focus on **backend engineering, AI agents, RAG systems, and database-backed applications**, and I'm currently seeking **Software Development Engineer (SDE)** internship and new graduate full-time opportunities.
 
+[![Resume](https://img.shields.io/badge/Resume-View%20PDF-2563EB?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](./assets/Chengzha_Zhou_Resume.pdf)
+
 ---
 
 ## 🚀 Featured Projects
